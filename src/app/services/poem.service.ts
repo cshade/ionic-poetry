@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
+import { Poem } from '../poem';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PoemService {
 
-  private userTheme: string;
+  poem: Poem;
 
-  constructor() { }
+  constructor( ) { 
+    this.poem = {
+      title: `Suicide's Note`,
+      body: `The calm,
+        <br/>Cool face of the river
+        <br/>Asked me for a kiss.`,
+      author: `Langston Hughes`
+    }
 
-  public getPoemBody() {
-    return "This is random poem " + Math.floor(Math.random() * Math.floor(10));
   }
-  public getPoemTitle() {
-    return "TITLE";
+
+  getPoem(): Poem {
+    return this.poem;
   }
-  public getPoemByline() {
-    return "by a poet"
+
+  getRandomPoem(): Poem {
+    return this.poem;
   }
 }

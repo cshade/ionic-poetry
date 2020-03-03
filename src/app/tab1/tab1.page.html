@@ -10,9 +10,10 @@
 
   <ion-button (click)="getRandomPoem()">Get A Poem</ion-button>
 
-  <h1>{{poemTitle}}</h1>
-  
-  <div [innerHTML]="poemBody"></div>
-  <p>{{poemByline}}</p>
+  <h1>{{ getPoemTitle() | uppercase }}</h1>
+
+  <div [innerHTML]="getPoemBody()"></div>
+
+  <p><em>by {{ getPoemAuthor() }}</em></p>
 
 </ion-content>

@@ -1,5 +1,6 @@
-import { PoemService } from './../services/poem.service';
 import { Component } from '@angular/core';
+import { PoemService } from './../services/poem.service';
+import { Poem } from '../poem';
 
 @Component({
   selector: 'app-tab1',
@@ -8,23 +9,33 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
+  private poem: Poem;
+
   constructor(private poemService: PoemService) {
-    this.poemTitle = `SUICIDE'S NOTE`
-    this.poemBody = `The calm,
-    <br/>Cool face of the river
-    <br/>Asked me for a kiss.`
-    this.poemByline = `by Langston Hughes`
   }
 
-  poemTitle: string;
-  poemBody: string;
-  poemByline: string;
-
-  getRandomPoem() {
-    console.log("page TS calling get random poem");
-    this.poemTitle = this.poemService.getPoemTitle();
-    this.poemBody = this.poemService.getPoemBody();
-    this.poemByline = this.poemService.getPoemByline();
+  getRandomPoem():Poem {
+    return this.poemService.getRandomPoem();
   }
 
+  getPoemTitle():string {
+    if (!this.poem) {
+      this.poem = this.poemService.getPoem()
+    }
+    return this.poem.title;
+  }
+
+  getPoemAuthor():string {
+    if (!this.poem) {
+      this.poem = this.poemService.getPoem()
+    }
+    return this.poem.author;
+  }
+
+  getPoemBody():string {
+    if (!this.poem) {
+      this.poem = this.poemService.getPoem()
+    }
+    return this.poem.body;
+  }
 }
