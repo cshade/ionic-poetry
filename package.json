@@ -30,7 +30,7 @@
     "@ionic/pwa-elements": "1.5.1",
     "cordova-browser": "6.0.0",
     "core-js": "^2.5.4",
-    "minimist": "1.2.5",
+    "minimist": "1.2.6",
     "rxjs": "6.5.5",
     "tslib": "1.11.1",
     "zone.js": "~0.10.3"
